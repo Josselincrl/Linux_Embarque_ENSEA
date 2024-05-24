@@ -122,8 +122,57 @@ Lorsque que l'on excecute de fichier compilé nous écrivions :
 ```
 ./chenillard.o &
 ```
+
 Cela a pour but d'excuter le programme dans un processus sans interompre toute la carte.
 Dans ce code, nous faisons un printf du code PID afin de pouvoir mettre en arret le processus.
+
+# TP2 Modules Kernel
+## Acces aux regsitres
+On utilise la fonction mmap() afin d'acceder à la mémoire virtuelle ce qui donne acces aux regsitres de la carte. Le programme suivant permet d'allumer une led en passant par les registres.
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <stdint.h>
+
+#define GPIO_LED_ADDR 0xFF203000
+
+int main(void)
+{
+    uint32_t * p;
+    int fd = open("/dev/mem", O_RDWR);
+    p = (uint32_t*)mmap(NULL, 4, PROT_WRITE|PROT_READ, MAP_SHARED, fd, GPIO_LED_ADDR);
+    *p = (1<<6);
+}
+```
+L'utilisation de la fonction mmap() pour accéder directement aux registres depuis l'espace utilisateur présente certains problèmes et limites :
+
+  - Sécurité : L'accès direct aux registres peut potentiellement compromettre la sécurité du système, car cela contourne les mécanismes de protection du noyau d'exploitation.
+  - Portabilité : L'utilisation de mmap() pour accéder aux registres est spécifique à une plateforme donnée. Le code ne sera pas portable sur d'autres systèmes d'exploitation ou architectures matérielles.
+  - Complexité : L'accès direct aux registres nécessite une connaissance approfondie de l'architecture matérielle et des registres spécifiques à utiliser. Cela peut rendre le code plus complexe et difficile à maintenir.
+  - Dépendance au noyau : L'utilisation de mmap() nécessite des privilèges d'accès au noyau, ce qui peut limiter l'utilisation du code dans des environnements restreints ou sur des systèmes embarqués.
+
+## Compilation de module noyau sur la VM
+
+Pour utiliser le Makefile il suffit de taper la commande suivante dans le terminal
+```
+make
+```
+Cela crée un fichier .ko, dans notre cas hello.ko executable depuis le noyau. Pour cela nous tappons dans le terminal la commande :
+```
+sudo insmod hello.ko
+```
+Lorsque on va voir les messages du noyaux depuis son démarrage avec la commande :
+```
+sudo dmesg
+```
+On observe notre message *Hello, World!*
+
+![screenlsmod](image.png)
+
+
+
 
 
 
