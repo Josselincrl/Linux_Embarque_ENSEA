@@ -171,6 +171,26 @@ On observe notre message *Hello, World!*
 
 ![screenlsmod](image.png)
 
+Pour passer des paramètres dans le module nous avons écrit le code suivant :
+```
+static int param;
+module_param(param, int, 0);
+MODULE_PARM_DESC(param, "Un paramètre de ce module");
+
+static int __init le_module_init(void) {
+    printk(KERN_INFO "Hello world!\n");
+    printk(KERN_DEBUG "le paramètre est=%d\n", param);
+    return 0;
+}
+
+```
+*moduleparam()* permet d'ajouter un parametre au module. *MODUL_PARM_DESC()* donne la description du paramètre du module.
+Pour le timer le code est deja donné, son implémentation se fait avec un callback()
+Après execution les messages renvoyés sont : 
+
+![screenparamtimer](image_1.png)
+push
+
 
 
 
