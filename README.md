@@ -189,7 +189,7 @@ Pour le timer le code est deja donné, son implémentation se fait avec un callb
 Après execution les messages renvoyés sont : 
 
 ![screenparamtimer](image_1.png)
-
+push
 
 
 
