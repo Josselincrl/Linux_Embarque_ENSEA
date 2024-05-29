@@ -1,4 +1,6 @@
 # Linux Embarque ENSEA
+
+# TP1 Prise en main Linux
 ## On flash l'image sur la carte SD
 
 ```
@@ -199,9 +201,8 @@ Après supréssion du module :
 
 ![screenparamtimer](image_3.png)
 
-## Chenillard avec module et paramètres
-
-On va utiliser les fichiers donnés afin de faire un chenillard dont sa vitesse est donnée en paramètre
+# TP3 Device tree
+## Module accedant aux LEDs
 
 
 
