@@ -189,7 +189,17 @@ Pour le timer le code est deja donné, son implémentation se fait avec un callb
 Après execution les messages renvoyés sont : 
 
 ![screenparamtimer](image_1.png)
-push
+
+## Hello, World! avec Makefile
+Pour cette partie nous ajoutons le module *Hello, World!* au Kernel, pour cela on intègre au Makefile le fichier *hello.o*. En faisant make nous obtenons le fichier .ko que nous déplacons dans la carte soc-fpga. Une fois sur la carte avec la commande insmod on lance l'execution du module *hello.ko*. Nous allons voir les messages de la carte et le resultat obtenus est le suivant :
+
+![screenparamtimer](image_2.png)
+![screenparamtimer](image_3.png)
+
+## Chenillard avec module et paramètres
+
+On va utiliser les fichiers donnés afin de faire un chenillard dont sa vitesse est donnée en paramètre
+
 
 
 
