@@ -194,6 +194,9 @@ Après execution les messages renvoyés sont :
 Pour cette partie nous ajoutons le module *Hello, World!* au Kernel, pour cela on intègre au Makefile le fichier *hello.o*. En faisant make nous obtenons le fichier .ko que nous déplacons dans la carte soc-fpga. Une fois sur la carte avec la commande insmod on lance l'execution du module *hello.ko*. Nous allons voir les messages de la carte et le resultat obtenus est le suivant :
 
 ![screenparamtimer](image_2.png)
+
+Après supréssion du module : 
+
 ![screenparamtimer](image_3.png)
 
 ## Chenillard avec module et paramètres
