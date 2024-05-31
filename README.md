@@ -1,4 +1,6 @@
 # Linux Embarque ENSEA
+
+# TP1 Prise en main Linux
 ## On flash l'image sur la carte SD
 
 ```
@@ -189,8 +191,20 @@ Pour le timer le code est deja donné, son implémentation se fait avec un callb
 Après execution les messages renvoyés sont : 
 
 ![screenparamtimer](image_1.png)
-push
 
+## Hello, World! avec Makefile
+Pour cette partie nous ajoutons le module *Hello, World!* au Kernel, pour cela on intègre au Makefile le fichier *hello.o*. En faisant make nous obtenons le fichier .ko que nous déplacons dans la carte soc-fpga. Une fois sur la carte avec la commande insmod on lance l'execution du module *hello.ko*. Nous allons voir les messages de la carte et le resultat obtenus est le suivant :
+
+![screenparamtimer](image_2.png)
+
+Après supréssion du module : 
+
+![screenparamtimer](image_3.png)
+
+# TP3 Device tree
+## Module accedant aux LEDs
+
+  - La fonction *probe* 
 
 
 
