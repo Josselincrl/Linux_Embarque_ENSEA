@@ -203,7 +203,8 @@ Après supréssion du module :
 
 # TP3 Device tree
 ## Module accedant aux LEDs
-Le rôle de ses fonctions 
+
+  - La fonction *probe* 
 
 
 
