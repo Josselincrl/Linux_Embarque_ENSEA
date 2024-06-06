@@ -204,7 +204,31 @@ Après supréssion du module :
 # TP3 Device tree
 ## Module accedant aux LEDs
 
-  - La fonction *probe* 
+Pour acceder aux leds avec le driver, nous modifions les paramètere du devise tree par les commandes suivantes : 
+```
+ledr: gpio@0x100003000 {
+compatible = "altr,pio-16.1", "altr,pio-1.0";
+reg = <0x00000001 0x00003000 0x00000010>;
+clocks = <&clk_50>;
+par :
+ledr: ensea {
+compatible = "dev,ensea";
+reg = <0x00000001 0x00003000 0x00000010>;
+clocks = <&clk_50>;
+```
+
+  - leds_probe configure les ressources mémoire pour le périphérique de LEDs, initialise les LEDs, enregistre un périphérique misc pour l'interaction en espace utilisateur, et stocke les données spécifiques du périphérique pour un accès futur.
+  - read permet de lire la valeur d'une led
+  - write permet d'écrire une valeur a une led
+  - remove supprime l'instance d'une led
+    
+![screenparamtimer](image_4.png)
+
+
+# Fin
+
+
+
 
 
 
